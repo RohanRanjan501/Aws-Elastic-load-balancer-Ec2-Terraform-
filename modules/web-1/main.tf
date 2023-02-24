@@ -13,23 +13,16 @@ resource "aws_instance" "web-1" {
   sudo apt update -y
   sudo apt install apache2 -y
   echo "*** Completed Installing apache2"
-  vim index.html
-  <html><body><h1>Hello i am Rohan Ranjan here</h1></body></html>
+  sudo rm /var/www/html/index.html
+  sudo curl -O https://raw.githubusercontent.com/Rohanranjan51/web-file-copy-test/e1cba2efb0bf2e9175c71840abf1f4378ee003cd/index.html
+  sudo cp index.html /var/www/html
+  sudo rm index.html
   EOF
-
-
-
 
   tags = {
     Name="web-1"
   }
 }
-
-
-
-
-
-
 
 
 
